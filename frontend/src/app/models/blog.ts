@@ -1,4 +1,4 @@
-export interface IBost {
+export interface IBlog {
     _id: string;
     title: string;
     author: string;

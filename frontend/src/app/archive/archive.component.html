@@ -1,24 +1,54 @@
-<!-- <div>
-    <ul class="list-group">
-        <li class="list-group-item"><span>Archive</span>
-        </li>
-    </ul>
-</div> -->
-
-Archived blogs
-<div *ngFor="let b of blogs">
-    <div class="m-2">
-        <div class="published text-gray">
-            Published : {{b.published}}
+<div class="text-center p-3">
+    <div class="row">
+        <div class="col-10">
+            <input type="text" class="form-control" placeholder="search">
         </div>
-        <div class="author">
-            Author : {{b.author}}
-        </div>
-        <div class="h4 font3 text-success">
-            {{b.title}}
-        </div>
-        <div class="h6 description">
-            {{b.description}}
+        <div class="col-2 text-left">
+            <button class="btn btn-dark">search</button>
         </div>
     </div>
 </div>
+<ul class="list-group" *ngFor="let b of blogs">
+    <div *ngIf="isEven(); then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <li class="list-group-item list-group-item-action">
+            <div>
+                <div class="author font-italic font-weight-bold" routerLink="/blog/{{b.author}}">
+                    Author : {{b.author}}
+                </div>
+                <div class="published text-gray font-italic">
+                    Published : {{b.published}}
+                </div>
+                <div routerLink="/blog/{{b.author}}/{{b._id}}">
+                    <div class="h3 font3 clr1">
+                        {{b.title}}
+                    </div>
+                    <div class="description">
+                        {{b.description}}
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ng-template>
+    <ng-template #elseBlock>
+        <li class="list-group-item list-group-item-action bggray">
+            <div>
+                <div class="author font-italic font-weight-bold" routerLink="/blog/{{b.author}}">
+                    Author : {{b.author}}
+                </div>
+                <div class="published text-gray font-italic">
+                    Published : {{b.published}}
+                </div>
+                <div routerLink="/blog/{{b.author}}/{{b._id}}">
+                    <div class="h3 font3 clr1">
+                        {{b.title}}
+                    </div>
+                    <div class="description">
+                        {{b.description}}
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ng-template>
+    {{increment()}}
+</ul>

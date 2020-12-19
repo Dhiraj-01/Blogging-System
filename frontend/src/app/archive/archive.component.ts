@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { IBlog } from '../models/blog';
+
 @Component({
   selector: 'app-archive',
   templateUrl: './archive.component.html',
@@ -190,7 +192,16 @@ export class ArchiveComponent implements OnInit {
       "__v": 0
     }
   ];
-  ngOnInit(): void {
-  }
 
+
+  cnt = 0;
+  ngOnInit(): void {
+    this.cnt = 0;
+  }
+  increment() {
+    this.cnt++;
+  }
+  isEven() {
+    return this.cnt % 2 == 0 ? true : false;
+  }
 }

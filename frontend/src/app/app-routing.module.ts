@@ -41,6 +41,14 @@ const routes: Routes = [
     component: ArchiveComponent,
   },
   {
+    path: 'blog/:user',
+    component: BlogComponent,
+  },
+  {
+    path: 'blog/:user/:id',
+    component: BlogComponent,
+  },
+  {
     path: '**',
     component: ErrorComponent,
   }

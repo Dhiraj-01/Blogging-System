@@ -1,6 +1,9 @@
 input, textarea {
     border-radius: 5px;
-    padding: 0 10px;
+    padding: 0.1em 0.5em;
+    width: 20em;
+    margin-top: 0.2em;
+    margin-bottom: 0.3em;
 }
 .btn1 {
     margin-top: 1em;

@@ -1,1 +1,24 @@
-<p>archive works!</p>
+<!-- <div>
+    <ul class="list-group">
+        <li class="list-group-item"><span>Archive</span>
+        </li>
+    </ul>
+</div> -->
+
+Archived blogs
+<div *ngFor="let b of blogs">
+    <div class="m-2">
+        <div class="published text-gray">
+            Published : {{b.published}}
+        </div>
+        <div class="author">
+            Author : {{b.author}}
+        </div>
+        <div class="h4 font3 text-success">
+            {{b.title}}
+        </div>
+        <div class="h6 description">
+            {{b.description}}
+        </div>
+    </div>
+</div>

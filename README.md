@@ -2,7 +2,7 @@
  
 ### Screenshots
 
-- **Home**
+**Home**
 ![home](screenshots/home.PNG)
 
 **About**

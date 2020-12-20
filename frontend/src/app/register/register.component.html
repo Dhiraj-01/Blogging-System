@@ -9,26 +9,25 @@
                         <a routerLink="/login">login</a>
                     </div>
                 </div>
-                <form class="pt-3">
+                <form class="pt-3" (ngSubmit)="register()" [formGroup]="registerForm" method="post">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control form-control-sm" placeholder="Your name">
+                        <input formControlName="user" type="text" class="form-control form-control-sm" placeholder="Your name">
                         <small>User name must be unique.</small>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" class="form-control form-control-sm" placeholder="Your email">
+                        <input formControlName="email" type="email" class="form-control form-control-sm" placeholder="Your email">
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control form-control-sm" placeholder="Your password">
-                        <!-- <small>password length must be > 6</small> -->
+                        <input formControlName="password" type="password" class="form-control form-control-sm" placeholder="Your password">
                     </div>
                     <div class="form-group">
                         <label>Repeat Password</label>
-                        <input type="password" class="form-control form-control-sm" placeholder="Your password">
+                        <input formControlName="repassword" type="password" class="form-control form-control-sm" placeholder="Your password">
                     </div>
-                    <button class="btn btn-primary btn-sm" routerLink="/home">Submit</button>
+                    <button class="btn btn-primary btn-sm">Submit</button>
                 </form>
             </div>
         </div>

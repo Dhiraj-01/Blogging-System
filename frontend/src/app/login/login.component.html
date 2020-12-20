@@ -9,16 +9,16 @@
                         <a routerLink="/register">create one</a>
                     </div>
                 </div>
-                <form class="pt-3">
+                <form class="pt-3" (ngSubmit)="login()" [formGroup]="loginForm" method="post">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control form-control-sm" placeholder="Your name">
+                        <input type="text" formControlName="user" class="form-control form-control-sm" placeholder="Your name">
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control form-control-sm" placeholder="Your password">
+                        <input type="password" formControlName="password" class="form-control form-control-sm" placeholder="Your password">
                     </div>
-                    <button class="btn btn-primary btn-sm" routerLink="/home">Submit</button>
+                    <button class="btn btn-primary btn-sm">Submit</button>
                 </form>
             </div>
         </div>

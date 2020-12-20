@@ -15,6 +15,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    pathMatch: 'full',
   },
   {
     path: 'home',
@@ -41,11 +42,7 @@ const routes: Routes = [
     component: ArchiveComponent,
   },
   {
-    path: 'blog/:user',
-    component: BlogComponent,
-  },
-  {
-    path: 'blog/:user/:id',
+    path: 'blog/:id',
     component: BlogComponent,
   },
   {

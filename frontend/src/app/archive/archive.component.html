@@ -16,13 +16,13 @@
             <ng-template #thenBlock>
                 <li class="list-group-item list-group-item-action">
                     <div>
-                        <div class="author font-italic font-weight-bold" routerLink="/blog/{{b.author}}">
+                        <div class="author font-italic font-weight-bold" routerLink="/blog" [queryParams]="{user : b.author}">
                             Author : {{b.author}}
                         </div>
                         <div class="published text-gray font-italic">
                             Published : {{b.published}}
                         </div>
-                        <div routerLink="/blog/{{b.author}}/{{b._id}}">
+                        <div routerLink="/blog/{{b._id}}">
                             <div class="h3 font3 clr1">
                                 {{b.title}}
                             </div>
@@ -34,15 +34,15 @@
                 </li>
             </ng-template>
             <ng-template #elseBlock>
-                <li class="list-group-item list-group-item-action bggray">
+                <li class="list-group-item list-group-item-action bg-gray">
                     <div>
-                        <div class="author font-italic font-weight-bold" routerLink="/blog/{{b.author}}">
+                        <div class="author font-italic font-weight-bold" routerLink="/blog" [queryParams]="{user : b.author}">
                             Author : {{b.author}}
                         </div>
                         <div class="published text-gray font-italic">
                             Published : {{b.published}}
                         </div>
-                        <div routerLink="/blog/{{b.author}}/{{b._id}}">
+                        <div routerLink="/blog/{{b._id}}">
                             <div class="h3 font3 clr1">
                                 {{b.title}}
                             </div>

@@ -6,13 +6,28 @@
 ![home](screenshots/home.PNG)
 
 **About**
-![home](screenshots/about.PNG)
+![about](screenshots/about.PNG)
 
 **Contact**
-![home](screenshots/contact.PNG)
+![contact](screenshots/contact.PNG)
 
 **Login**
-![home](screenshots/login.PNG)
+![login](screenshots/login.PNG)
 
 **Register**
-![home](screenshots/register.PNG)
+![register](screenshots/register.PNG)
+
+**Archive blogs**
+![archive](screenshots/archive.PNG)
+
+**search**
+![archive](screenshots/search.PNG)
+
+**blog view**
+![archive](screenshots/blog-view.PNG)
+
+**blogs create**
+![archive](screenshots/blog-create.PNG)
+
+**blogs edit**
+![archive](screenshots/blog-edit.PNG)

@@ -1,8 +1,9 @@
 .author, .published {
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 .bg-gray {
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
+    background-color: #faf9f9;
 }
 .clr1 {
     color: #1abc9C;

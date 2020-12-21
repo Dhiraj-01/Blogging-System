@@ -1,12 +1,20 @@
-<div class="container">
+<div class="container mb-5">
     <!-- search -->
     <div class="pt-3 pb-3">
         <div class="row ok">
             <div class="col-10">
-                <input type="text" class="form-control" placeholder="search">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                    <input class="form-control" placeholder="Search here" (keyup)="filter($event.target.value)">
+                </div>
             </div>
-            <div class="col-2 text-left">
-                <button class="btn btn-dark">search</button>
+            <div class="col-2">
+                <!-- <button class="btn btn-dark" [routerLink]="'/blog/edit'">Create Blog</button> -->
+                <button class="btn btn-dark" routerLink="/blog/create">Create Blog</button>
             </div>
         </div>
     </div>
@@ -14,16 +22,18 @@
         <ul class="list-group" *ngFor="let b of blogs">
             <div *ngIf="isEven(); then thenBlock else elseBlock"></div>
             <ng-template #thenBlock>
-                <li class="list-group-item list-group-item-action">
+                <li class="list-group-item">
                     <div>
-                        <div class="author font-italic font-weight-bold" routerLink="/blog" [queryParams]="{user : b.author}">
-                            Author : {{b.author}}
+                        <div class="row">
+                            <div class="col link author font-italic font-weight-bold" routerLink="/blog" [queryParams]="{user : b.author}">
+                                Author : {{b.author}}
+                            </div>
+                            <div class="col text-right published text-gray font-italic">
+                                Published : {{b.published}}
+                            </div>
                         </div>
-                        <div class="published text-gray font-italic">
-                            Published : {{b.published}}
-                        </div>
-                        <div routerLink="/blog/{{b._id}}">
-                            <div class="h3 font3 clr1">
+                        <div class="pointer mt-1" routerLink="/blog/view/{{b._id}}">
+                            <div class="h4 font3 clr1">
                                 {{b.title}}
                             </div>
                             <div class="description">
@@ -36,14 +46,16 @@
             <ng-template #elseBlock>
                 <li class="list-group-item list-group-item-action bg-gray">
                     <div>
-                        <div class="author font-italic font-weight-bold" routerLink="/blog" [queryParams]="{user : b.author}">
-                            Author : {{b.author}}
+                        <div class="row">
+                            <div class="link col author font-italic font-weight-bold" routerLink="/blog" [queryParams]="{user : b.author}">
+                                Author : {{b.author}}
+                            </div>
+                            <div class="col text-right published text-gray font-italic">
+                                Published : {{b.published}}
+                            </div>
                         </div>
-                        <div class="published text-gray font-italic">
-                            Published : {{b.published}}
-                        </div>
-                        <div routerLink="/blog/{{b._id}}">
-                            <div class="h3 font3 clr1">
+                        <div class="pointer mt-1" routerLink="/blog/view/{{b._id}}">
+                            <div class="h4 font3 clr1">
                                 {{b.title}}
                             </div>
                             <div class="description">

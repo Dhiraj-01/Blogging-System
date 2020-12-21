@@ -14,20 +14,10 @@ router.get('/', (req, res) => {
         }
     })
 });
-router.get('/archive', (req, res) => {
-    Blog.find((err, data) => {
-        if (err) {
-            return res.json("error !!");
-        }
-        else {
-            res.json(data);
-        }
-    })
-});
 
-router.get('/:user', (req, res) => {
+router.get('/get/user/:username', (req, res) => {
     Blog.find({
-        author: req.params.user,
+        author: req.params.username,
     },
     (err, data) => {
         if (err) {
@@ -40,11 +30,13 @@ router.get('/:user', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
+    console.log("create blog");
     Blog.create({
         title: req.body.title,
         author: req.body.author,
         content: req.body.content,
         description: req.body.description,
+        published: req.body.published
     },
     (err, data) => {
         if (err) {
@@ -56,7 +48,21 @@ router.post('/create', (req, res) => {
     });
 });
 
+router.get('/get/:id', (req, res) => {
+    console.log("get blog request");
+    Blog.findById(req.params.id, (err, data) => {
+        if (err) {
+            return res.json("error !!");
+        }
+        else {
+            console.log(data);
+            return res.json(data);
+        }
+    });
+});
+
 router.put('/update/:id', (req, res) => {
+    console.log("update blog");
     Blog.findOneAndUpdate({
         _id: req.params.id
     },
@@ -72,21 +78,23 @@ router.put('/update/:id', (req, res) => {
             return res.json("error !!");
         }
         else {
-            res.json(data);
+            return res.json(data);
         }
     });
 });
 
 router.delete('/delete/:id', (req, res) => {
+    console.log("delete blog request");
     Blog.findOneAndDelete({
         _id: req.params.id,
     },
     (err, data) => {
         if (err) {
-            return res.json("error !!");
+            return res.json({ _id: '-1'});
         }
         else {
-            res.json(data);
+            console.log(data);
+            return res.json(data);
         }
     });
 });

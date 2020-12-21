@@ -4,12 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { ArchiveComponent } from './archive/archive.component';
-import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { BlogEditComponent } from './blog-edit/blog-edit.component';
+import { BlogCreateComponent } from './blog-create/blog-create.component';
+import { BlogViewComponent } from './blog-view/blog-view.component';
 
 const routes: Routes = [
   {
@@ -42,8 +44,16 @@ const routes: Routes = [
     component: ArchiveComponent,
   },
   {
-    path: 'blog/:id',
-    component: BlogComponent,
+    path: 'blog/create',
+    component: BlogCreateComponent,
+  },
+  {
+    path: 'blog/view/:id',
+    component: BlogViewComponent,
+  },
+  {
+    path: 'blog/edit/:id',
+    component: BlogEditComponent,
   },
   {
     path: '**',

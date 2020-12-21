@@ -1,6 +1,7 @@
 // require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // const showdown = require('showdown');
 // const converter = new showdown.Converter();
@@ -12,6 +13,7 @@ const  accountController = require('./controllers/account');
 const blogController = require('./controllers/blog');
 
 let app = express();
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 

@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.controls.user.value);
-    console.log(this.loginForm.controls.password.value);
+    if(!this.loginForm.invalid) {
+      console.log(this.loginForm.controls.user.value);
+      console.log(this.loginForm.controls.password.value);
+    }
   }
 }

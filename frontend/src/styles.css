@@ -4,6 +4,7 @@
 
 * {
   font-weight: normal;
+  outline: 0;
   /* border: 2px solid black; */
 }
 
@@ -68,4 +69,12 @@ body, html {
 
 .clr1 {
   color: #1abc9C;
+}
+
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.pointer {
+  cursor: pointer;
 }

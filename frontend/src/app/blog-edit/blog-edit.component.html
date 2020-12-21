@@ -27,7 +27,8 @@
                 <textarea [(ngModel)]="blog.content" id="content" formControlName="content" class="font1 form-control form-control-sm" rows="15" required></textarea>
                 <small *ngIf="blogForm.get('content').hasError('required') && blogForm.get('content').touched" class="text-danger font-italic">blog content required!</small>
             </div>
-            <button class="btn btn-primary btn-sm">Update</button>
+            <button class="btn btn-dark btn-sm" routerLink="/blog/view/{{blog_id}}" >Cancel</button>
+            <button class="btn btn-primary btn-sm ml-2" [disabled]="blogForm.invalid">Update</button>
         </form>
     </div>
 </div>

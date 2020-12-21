@@ -12,3 +12,6 @@
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
 }
+.bg-gray {
+    background-color: #faf9f9;
+}

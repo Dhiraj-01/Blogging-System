@@ -27,7 +27,7 @@
                 <textarea id="content" formControlName="content" class="font1 form-control form-control-sm" rows="15" placeholder="blog content" required></textarea>
                 <small *ngIf="blogForm.get('content').hasError('required') && blogForm.get('content').touched" class="text-danger font-italic">blog content required!</small>
             </div>
-            <button class="btn btn-primary btn-sm">Create</button>
+            <button class="btn btn-primary" [disabled]="blogForm.invalid">Create</button>
         </form>
     </div>
 </div>

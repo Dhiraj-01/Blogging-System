@@ -1,5 +1,5 @@
 import { BOOL_TYPE } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { IBlog } from '../models/blog';
@@ -10,7 +10,7 @@ import { BlogService } from '../services/blog.service';
   templateUrl: './archive.component.html',
   styleUrls: ['./archive.component.css']
 })
-export class ArchiveComponent implements OnInit {
+export class ArchiveComponent implements OnInit, OnChanges {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -40,6 +40,11 @@ export class ArchiveComponent implements OnInit {
     //   );
     // }
 
+    // this.blogService.getBlogs().subscribe((data) => {
+    //   this.blogs = this.copyBlogs = data;
+    //   }
+    // );
+
     this.route.queryParams.subscribe((params) => {
       if(params.user) {
         this.blogService.getBlogsByUser(params.user).subscribe((data) => {
@@ -49,8 +54,7 @@ export class ArchiveComponent implements OnInit {
       else {
         this.blogService.getBlogs().subscribe((data) => {
           this.blogs = this.copyBlogs = data;
-          }
-        );
+        });
       }
     });
   }
@@ -66,10 +70,9 @@ export class ArchiveComponent implements OnInit {
   { 
     query = query.toLowerCase().trim();
     let terms:string[] = query.split(' ');
-    this.blogs = this.copyBlogs;
-    let filterBlogs:IBlog[] = [];
+    this.blogs = [];
     
-    this.blogs.forEach(b => {
+    this.copyBlogs.forEach(b => {
       let ok:boolean = false;
       terms.forEach(term => {
         if (b.title.toLocaleLowerCase().includes(query) || b.author.toLocaleLowerCase().includes(query)) {
@@ -83,23 +86,12 @@ export class ArchiveComponent implements OnInit {
         });
       });
       if(ok) {
-        filterBlogs.push(b);
+        this.blogs.push(b);
       }
     });
-    this.blogs = filterBlogs;
   }
 
-  relevantBlogs(query: string) {
-    query = query.toLowerCase().trim();
-    let releventBlogs = this.blogs.filter(blog => {
-      if(blog.title.toLocaleLowerCase().includes(query) || blog.author.toLocaleLowerCase().includes(query) || 
-        blog.published.toLocaleLowerCase().includes(query)) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    });
-    return releventBlogs;
+  ngOnChanges() {
+    console.log("chages");
   }
 }

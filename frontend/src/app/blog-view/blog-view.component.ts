@@ -21,15 +21,13 @@ export class BlogViewComponent implements OnInit {
   ) {
     this.blog_id = this.route.snapshot.params.id;
   }
+  
   ngOnInit(): void {
     this._blogService.getBlogById(this.blog_id).subscribe((data) => {
       this.blog = data;
       if(this.blog) {
         if(this.blog._id === '-1') {
           this.errorPage();
-        }
-        else {
-          this.blog.content = "\n" + this.blog.content;
         }
       }
       else {

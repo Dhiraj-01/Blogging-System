@@ -1,4 +1,4 @@
-<div class="container mb-5">
+<div class="pl-5 pr-5 pb-5">
     <!-- search -->
     <div class="pt-3 pb-3">
         <div class="row ok">
@@ -12,7 +12,7 @@
                     <input class="form-control" placeholder="Search here blog, author, published date ..." (keyup)="filter($event.target.value)">
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-2 text-left">
                 <button class="btn btn-dark" routerLink="/blog/create">Create Blog</button>
                 <!-- <button class="btn btn-dark" [routerLink]="'/blog/edit'">Create Blog</button> -->
             </div>
@@ -25,15 +25,18 @@
                 <li class="list-group-item">
                     <div>
                         <div class="row">
-                            <div class="col link author font-italic font-weight-bold" routerLink="/blog" [queryParams]="{user : b.author}">
-                                Author : {{b.author}}
+                            <div class="col link author font-italic" routerLink="./" [queryParams]="{user : b.author}">
+                                Author : 
+                                <span class="font-weight-bold">
+                                    {{b.author}}
+                                </span>
                             </div>
                             <div class="col text-right published text-gray font-italic">
                                 Published : {{b.published}}
                             </div>
                         </div>
                         <div class="pointer mt-1" routerLink="/blog/view/{{b._id}}">
-                            <div class="h4 font3 clr1">
+                            <div class="h4 font3 clr1 title">
                                 {{b.title}}
                             </div>
                             <div class="description">
@@ -47,15 +50,18 @@
                 <li class="list-group-item list-group-item-action bg-gray">
                     <div>
                         <div class="row">
-                            <div class="link col author font-italic font-weight-bold" routerLink="/blog" [queryParams]="{user : b.author}">
-                                Author : {{b.author}}
+                            <div class="link col author font-italic" routerLink="/blog" [queryParams]="{user : b.author}">
+                                Author :
+                                <span class="font-weight-bold">
+                                    {{b.author}}
+                                </span>
                             </div>
                             <div class="col text-right published text-gray font-italic">
                                 Published : {{b.published}}
                             </div>
                         </div>
                         <div class="pointer mt-1" routerLink="/blog/view/{{b._id}}">
-                            <div class="h4 font3 clr1">
+                            <div class="h4 font3 clr1 title">
                                 {{b.title}}
                             </div>
                             <div class="description">

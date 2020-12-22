@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@350&display=swap');
+@import 'prismjs/themes/prism-okaidia.css';
 
 * {
   font-weight: normal;
@@ -9,7 +10,7 @@
 }
 
 body, html {
-  font-size: 1.3em;
+  font-size: 1.2em;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -42,6 +43,9 @@ body, html {
 }
 .font3 {
   font-family: Arial, Helvetica, sans-serif;
+}
+.code {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, serif;
 }
 
 /* cover entire page */

@@ -27,4 +27,8 @@ export class LoginComponent implements OnInit {
       console.log(this.loginForm.controls.password.value);
     }
   }
+
+  hasError(input:string):boolean {
+    return this.loginForm.get(input).hasError('required') && this.loginForm.get(input).touched;
+  }
 }

@@ -13,14 +13,15 @@
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" formControlName="user" class="form-control form-control-sm" placeholder="Your name" required>
-                        <small *ngIf="loginForm.get('user').hasError('required') && !loginForm.get('user').untouched" class="text-danger font-italic">Username required!</small>
+                        <small *ngIf="hasError('user')" class="text-danger font-italic">Username required!</small>
                     </div>
 
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" id="password" formControlName="password" class="form-control form-control-sm" placeholder="Your password" required>
-                        <small *ngIf="loginForm.get('password').hasError('required') && !loginForm.get('password').untouched" class="text-danger font-italic">password required!</small>
+                        <small *ngIf="hasError('password')" class="text-danger font-italic">password required!</small>
                     </div>
+                    
                     <button class="btn btn-primary btn-sm" [disabled]="loginForm.invalid">Submit</button>
                 </form>
             </div>

@@ -12,9 +12,9 @@ import { BlogService } from '../services/blog.service';
 })
 export class BlogEditComponent implements OnInit {
 
-  blog: IBlog;
   blog_id: string;
-  public blogForm: FormGroup;
+  blogForm: FormGroup;
+  previewMode:boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,21 +26,21 @@ export class BlogEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.blogForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      content: ['', Validators.required],
-      description: ['', Validators.required],
-    });
-
+    this.previewMode = false;
     this.blogService.getBlogById(this.blog_id).subscribe((data) => {
-      this.blog = data;
-      if (this.blog) {
-        if (this.blog._id === '-1') {
+      if (data) {
+        if (data._id === '-1') {
           this.errorPage();
         }
         else {
-          this.blog.content = "\n" + this.blog.content;
+          this.blogForm = this.formBuilder.group({
+            _id: [data._id],
+            author: [data.author],
+            published: [data.published],
+            title: [data.title, Validators.required],
+            description: [data.description, Validators.required],
+            content: [data.content, Validators.required],
+          });
         }
       }
       else {
@@ -51,23 +51,40 @@ export class BlogEditComponent implements OnInit {
 
   updateBlog()
   {
+    console.log("update");
     if (!this.blogForm.invalid) {
-      let contentEle = this.blogForm.controls.content.value.replace(/^\s+|\s+$/g, '');
-
+      // let contentEle = this.blogForm.controls.content.value.replace(/^\s+|\s+$/g, '');
       const blog_data = {
-        _id: this.blog_id,
+        _id: this.blogForm.controls._id.value,
+        author: this.blogForm.controls.author.value,
         title: this.blogForm.controls.title.value,
         description: this.blogForm.controls.description.value,
-        content: contentEle,
+        content: this.blogForm.controls.content.value
       }
-
+      
       this.blogService.updateBlog(blog_data).subscribe((data) => {
-        this.router.navigate(['/blog/view/' + this.blog._id]);
+        this.router.navigate(['/blog/view/' + blog_data._id]);
       });
+    }
+    else {
+      console.log("invalid form data");
     }
   }
 
   errorPage() {
     this.router.navigate(['/error']);
+  }
+
+  previewOn() {
+    console.log("on");
+    this.previewMode = true;
+  }
+  previewOff() {
+    console.log("off");
+    this.previewMode = false;
+  }
+
+  hasError(input: string): boolean {
+    return this.blogForm.get(input).hasError('required') && this.blogForm.get(input).touched;
   }
 }

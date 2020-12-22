@@ -1,34 +1,48 @@
-<div class="container border p-3 mt-3 mb-3 rounded">
+<div class="border p-3 m-4 rounded">
     <div class="p-2">
         <h3 class="clr1">Edit Blog</h3>
-        <form (ngSubmit)="updateBlog()" [formGroup]="blogForm" method="post">
+        <form [formGroup]="blogForm" method="post">
             <div class="row">
                 <div class="col form-group">
-                    <label for="author">Author</label>
-                    <input value="{{blog.author}}" type="text" id="author" class="form-control form-control-sm" required disabled>
+                    <label for="author" class="text-info">Author</label>
+                    <input formControlName="author" type="text" id="author" class="form-control form-control-sm" required disabled>
                 </div>
                 <div class="col form-group">
-                    <label for="date">Date</label>
-                    <input value="{{blog.published}}" type="text" id="date" class="form-control form-control-sm" disabled>
+                    <label for="date" class="text-info">Date</label>
+                    <input formControlName="published" type="text" id="date" class="form-control form-control-sm" disabled>
                 </div>
             </div>
             <div class="form-group">
-                <label for="title">Title</label>
-                <input [(ngModel)]="blog.title" type="text" formControlName="title" id="title" class="form-control form-control-sm" required>
-                <small *ngIf="blogForm.get('title').hasError('required') && blogForm.get('title').touched" class="text-danger font-italic">blog title required!</small>
+                <label for="title" class="text-info">Title</label>
+                <input type="text" formControlName="title" id="title" class="form-control form-control-sm code" required>
+                <small *ngIf="hasError('title')" class="text-danger font-italic">blog title required!</small>
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
-                <textarea [(ngModel)]="blog.description" id="description" formControlName="description" class="form-control form-control-sm" rows="3" required></textarea>
-                <small *ngIf="blogForm.get('description').hasError('required') && blogForm.get('description').touched" class="text-danger font-italic">blog description required!</small>
+                <label for="description" class="text-info">Description</label>
+                <textarea id="description" formControlName="description" class="form-control form-control-sm" rows="3" required></textarea>
+                <small *ngIf="hasError('description')" class="text-danger font-italic">blog description required!</small>
             </div>
-            <div class="form-group">
-                <label for="content">Content</label>
-                <textarea [(ngModel)]="blog.content" id="content" formControlName="content" class="font1 form-control form-control-sm" rows="15" required></textarea>
-                <small *ngIf="blogForm.get('content').hasError('required') && blogForm.get('content').touched" class="text-danger font-italic">blog content required!</small>
+            
+            <div>
+                <div>
+                    <button class="btn btn-sm btn-info border" (click)="previewOff()">edit</button>
+                    <button class="btn btn-sm ml-1 btn-secondary border" (click)="previewOn()">preview</button>
+                </div>
+                <div class="mt-2">
+                    <div class="form-group" *ngIf="!previewMode">
+                        <textarea formControlName="content" class="font1 form-control form-control-sm code" rows="20"></textarea>
+                        <small *ngIf="hasError('content')" class="text-danger font-italic">blog content required!</small>
+                    </div>
+                    <div class="col" *ngIf="previewMode">
+                        <markdown [data]="blogForm.controls.content.value"></markdown>
+                    </div>
+                </div>
             </div>
-            <button class="btn btn-dark btn-sm" routerLink="/blog/view/{{blog_id}}" >Cancel</button>
-            <button class="btn btn-primary btn-sm ml-2" [disabled]="blogForm.invalid">Update</button>
+
+            <div>
+                <button class="btn btn-dark" routerLink="/blog/view/{{blog_id}}">Cancel</button>
+                <button class="btn btn-primary ml-2" [disabled]="blogForm.invalid" (click)="updateBlog()">Update</button>
+            </div>
         </form>
     </div>
 </div>

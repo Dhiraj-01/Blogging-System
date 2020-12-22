@@ -11,6 +11,45 @@ import { BlogService } from '../services/blog.service';
 })
 export class BlogCreateComponent implements OnInit {
 
+  default_content:string = `
+### Hello user.
+you have to use markdown style for blog content.
+
+***
+#### List example
+1. First item
+2. Second item
+3. Third item
+    1. Indented item
+    2. Indented item
+4. Fourth item
+
+***
+#### blod, italic, link example
+*this is italic text*  
+**this is bold**  
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+***
+
+#### code example
+\`\`\`cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    cout << "Hello World!!";
+    return 0;
+}
+\`\`\`
+
+\`single line highlight\`
+
+***
+`;
+
+  previewMode:boolean = false;
+
   public blogForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
@@ -19,10 +58,11 @@ export class BlogCreateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.previewMode = true;
     this.blogForm = this.formBuilder.group({
       author: ['', Validators.required],
       title: ['', Validators.required],
-      content: ['', Validators.required],
+      content: [this.default_content, Validators.required],
       description: ['', Validators.required],
     });
   }
@@ -57,5 +97,16 @@ export class BlogCreateComponent implements OnInit {
         this.router.navigate(['/blog/view/' + data._id]);
       });
     }
+  }
+
+  previewOn() {
+    this.previewMode = true;
+  }
+  previewOff() {
+    this.previewMode = false;
+  }
+
+  hasError(input: string): boolean {
+    return this.blogForm.get(input).hasError('required') && this.blogForm.get(input).touched;
   }
 }

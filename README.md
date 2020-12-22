@@ -4,14 +4,12 @@
 - technology stack : **MEAN**
 
 ### content
-
 - [Features](#features)
 - [Installation](#installtion)
-- [How to run?](#how-to-run-?)
+- [How to run?](#how-to-run-)
 - [Scrrenshorts](#screenshots)
  
 ### Features
-
 - login / register
 - show list of blogs
 - search blogs based on author, title, published date 
@@ -19,7 +17,6 @@
 - markdown syntax for blog content
 
 ### Installtion
-
 - install [nodejs](https://nodejs.org/en/) and [angular cli](https://cli.angular.io/)
 - `git clone https://github.com/Dhiraj-01/Blogging-System.git` or download this project manually
 ```
@@ -33,7 +30,8 @@ npm install
 ### How to Run ?
 - you can direct double click on `run.bat`
 - otherwise follow this steps
-```cd backend
+```
+cd backend
 node index.js
    
 cd frontend

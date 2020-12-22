@@ -1,9 +1,9 @@
 # Blogging-System
  
-- it's a website dedicated for blogger.
-- technology stack : **MEAN**
+- it's a simple and beautiful website dedicated for blogger.
+- technology stack : [**MEAN**](https://en.wikipedia.org/wiki/MEAN_(solution_stack))
 
-### content
+### Content
 - [Features](#features)
 - [Installation](#installtion)
 - [How to run?](#how-to-run-)

@@ -1,7 +1,7 @@
 # Blogging-System
  
-- it's a simple and beautiful website dedicated for blogger.
-- technology stack : [**MEAN**](https://en.wikipedia.org/wiki/MEAN_(solution_stack))
+- It's a simple and beautiful website dedicated for blogger.
+- Technology stack : [**MEAN**](https://en.wikipedia.org/wiki/MEAN_(solution_stack))
 - [SRS document for Blogging System](https://github.com/Dhiraj-01/Blogging-System/blob/main/srs-blogging-system.pdf)
 
 ### Content
@@ -14,8 +14,8 @@
 - login / register.
 - show list of blogs.
 - search blogs based on author, title, published date. 
-- provide crud operations, edit, update, delete blogs.
-- markdown syntax for blog content.
+- provide crud operations, create, edit, update, delete blogs.
+- markdown syntax for blog content using [ngx-markdown](https://www.npmjs.com/package/ngx-markdown)
 
 ### Installtion
 - install [nodejs](https://nodejs.org/en/) and [angular cli](https://cli.angular.io/)

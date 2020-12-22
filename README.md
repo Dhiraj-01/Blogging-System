@@ -20,7 +20,9 @@
 ### Installtion
 - install [nodejs](https://nodejs.org/en/) and [angular cli](https://cli.angular.io/)
 ```
-git clone https://github.com/Dhiraj-01/Blogging-System.git or manually download this project 
+git clone https://github.com/Dhiraj-01/Blogging-System.git 
+(or manually download this project)
+
 cd backend
 npm install
 
@@ -29,7 +31,7 @@ npm install
 ```
 
 ### How to Run ?
-- you can directly double click on [run.bat](https://github.com/Dhiraj-01/Blogging-System/blob/main/run.bat) file. or
+- you can directly double click on [run.bat](https://github.com/Dhiraj-01/Blogging-System/blob/main/run.bat) file.  or follow this stpes.
 ```
 cd backend
 node index.js

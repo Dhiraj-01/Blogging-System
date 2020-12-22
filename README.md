@@ -10,16 +10,16 @@
 - [Scrrenshorts](#screenshots)
  
 ### Features
-- login / register
-- show list of blogs
-- search blogs based on author, title, published date 
-- provide crud operations, edit, update, delete blogs
-- markdown syntax for blog content
+- login / register.
+- show list of blogs.
+- search blogs based on author, title, published date. 
+- provide crud operations, edit, update, delete blogs.
+- markdown syntax for blog content.
 
 ### Installtion
 - install [nodejs](https://nodejs.org/en/) and [angular cli](https://cli.angular.io/)
-- `git clone https://github.com/Dhiraj-01/Blogging-System.git` or download this project manually
 ```
+git clone https://github.com/Dhiraj-01/Blogging-System.git or manually download this project 
 cd backend
 npm install
 
@@ -28,8 +28,7 @@ npm install
 ```
 
 ### How to Run ?
-- you can direct double click on `run.bat`
-- otherwise follow this steps
+- you can directly double click on [run.bat](https://github.com/Dhiraj-01/Blogging-System/blob/main/run.bat) file. or
 ```
 cd backend
 node index.js

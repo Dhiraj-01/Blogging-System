@@ -4,20 +4,20 @@
 - Technology stack : [**MEAN**](https://en.wikipedia.org/wiki/MEAN_(solution_stack))
 - [SRS document for Blogging System](https://github.com/Dhiraj-01/Blogging-System/blob/main/srs-blogging-system.pdf)
 
-### Content
+## Content
 - [Features](#features)
 - [Installation](#installtion)
 - [How to run?](#how-to-run-)
 - [Scrrenshorts](#screenshots)
  
-### Features
+## Features
 - login / register.
 - show list of blogs.
 - search blogs based on author, title, published date. 
 - provide crud operations, create, edit, update, delete blogs.
 - markdown syntax for blog content using [ngx-markdown](https://www.npmjs.com/package/ngx-markdown)
 
-### Installtion
+## Installtion
 - Install [nodejs](https://nodejs.org/en/) and [angular cli](https://cli.angular.io/)
 ```
 git clone https://github.com/Dhiraj-01/Blogging-System.git 
@@ -30,7 +30,7 @@ cd frontend
 npm install
 ```
 
-### How to Run ?
+## How to Run ?
 - you can directly double click on [run.bat](https://github.com/Dhiraj-01/Blogging-System/blob/main/run.bat) file.  or follow this stpes.
 ```
 cd backend
@@ -40,7 +40,7 @@ cd frontend
 ng serve -o
 ```
 
-### Screenshots
+## Screenshots
 
 **Home**
 ![home](screenshots/home.PNG)

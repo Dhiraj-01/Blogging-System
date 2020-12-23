@@ -36,20 +36,32 @@ export class ArchiveComponent implements OnInit, OnChanges {
     // else {
     //   this.blogService.getBlogs().subscribe((data) => {
     //     this.blogs = data;
-    //   }
-    //   );
+    //   });
     // }
 
-    // this.blogService.getBlogs().subscribe((data) => {
-    //   this.blogs = this.copyBlogs = data;
-    //   }
-    // );
-
+    // console.log("inside");
+  
     this.route.queryParams.subscribe((params) => {
-      if(params.user) {
+      if (params.user && params.search) {
+        console.log("both");
+        this.blogService.getBlogsByUser(params.user).subscribe((data) => {
+          this.blogs = this.copyBlogs = data;
+        });
+        this.filter(params.search);
+      }
+      else if(params.user) {
+        console.log("user");
         this.blogService.getBlogsByUser(params.user).subscribe((data) => {
           this.blogs = this.copyBlogs = data;
         }); 
+      }
+      else if(params.search) {
+        console.log("search", params.search);
+        this.blogService.getBlogs().subscribe((data) => {
+          this.blogs = this.copyBlogs = data;
+        });
+        console.log(this.blogs);
+        this.filter(params.search);
       }
       else {
         this.blogService.getBlogs().subscribe((data) => {

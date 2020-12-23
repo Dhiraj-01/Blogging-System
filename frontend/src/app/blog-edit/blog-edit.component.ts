@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { IBlog } from '../models/blog';
@@ -35,8 +35,8 @@ export class BlogEditComponent implements OnInit {
         else {
           this.blogForm = this.formBuilder.group({
             _id: [data._id],
-            author: [data.author],
-            published: [data.published],
+            author: new FormControl({ value: data.author, disabled: true }, Validators.required),
+            published: new FormControl({ value: data.published, disabled: true }, Validators.required),
             title: [data.title, Validators.required],
             description: [data.description, Validators.required],
             content: [data.content, Validators.required],

@@ -5,11 +5,11 @@
             <div class="col-10">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">
+                        <span class="input-group-text" routerLink="./" [queryParams]="{search : searchEle.value}" queryParamsHandling="merge">
                             <i class="fa fa-search"></i>
                         </span>
                     </div>
-                    <input class="form-control" placeholder="Search here blog, author, published date ..." (keyup)="filter($event.target.value)">
+                    <input class="form-control" #searchEle placeholder="Search here blog, author, published date ..." (keyup)="filter(searchEle.value)">
                 </div>
             </div>
             <div class="col-2 text-left">
@@ -25,9 +25,9 @@
                 <li class="list-group-item">
                     <div>
                         <div class="row">
-                            <div class="col link author font-italic" routerLink="./" [queryParams]="{user : b.author}">
-                                Author : 
-                                <span class="font-weight-bold">
+                            <div class="col link author font-italic" routerLink="./" [queryParams]="{user : b.author}" queryParamsHandling="merge">
+                                Author :
+                                <span class="font-weight-bold blue-hover">
                                     {{b.author}}
                                 </span>
                             </div>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="pointer mt-1" routerLink="/blog/view/{{b._id}}">
-                            <div class="h4 font3 clr1 title">
+                            <div class="h4 font3 clr1 blue-hover">
                                 {{b.title}}
                             </div>
                             <div class="description">
@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="link col author font-italic" routerLink="/blog" [queryParams]="{user : b.author}">
                                 Author :
-                                <span class="font-weight-bold">
+                                <span class="font-weight-bold blue-hover">
                                     {{b.author}}
                                 </span>
                             </div>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="pointer mt-1" routerLink="/blog/view/{{b._id}}">
-                            <div class="h4 font3 clr1 title">
+                            <div class="h4 font3 clr1 blue-hover">
                                 {{b.title}}
                             </div>
                             <div class="description">

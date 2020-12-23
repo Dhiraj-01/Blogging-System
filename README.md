@@ -8,7 +8,7 @@
 - [Features](#features)
 - [Installation](#installtion)
 - [How to run?](#how-to-run-)
-- [Scrrenshorts](#screenshots)
+- [Scrrenshots](#screenshots)
  
 ## Features
 - login / register.

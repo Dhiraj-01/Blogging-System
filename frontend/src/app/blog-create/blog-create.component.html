@@ -19,14 +19,14 @@
             </div>
             <div class="form-group">
                 <label for="description" class="text-info">Description</label>
-                <textarea id="description" formControlName="description" class="form-control form-control-sm" rows="3" placeholder="blog description" required></textarea>
+                <textarea id="description" formControlName="description" class="form-control form-control-sm code" rows="3" placeholder="blog description" required></textarea>
                 <small *ngIf="hasError('description')" class="text-danger font-italic">blog description required!</small>
             </div>
 
             <div>
                 <div>
                     <button class="btn btn-sm border btn-info" (click)="previewOff()">Edit</button>
-                    <button class="btn btn-sm border btn-secondary ml-1" (click)="previewOn()">Preview</button>
+                    <button class="btn btn-sm border btn-secondary ml-2" (click)="previewOn()">Preview</button>
                 </div>
                 <div class="mt-2">
                     <div class="form-group" *ngIf="!previewMode">

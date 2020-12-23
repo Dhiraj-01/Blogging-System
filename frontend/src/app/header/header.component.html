@@ -14,13 +14,28 @@
                 <a class="nav-link text-white" routerLink="/contact">Contact</a>
             </li>
         </ul>
-        <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link text-white" routerLink="/login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" routerLink="/register">Register</a>
-            </li>
-        </ul>
+
+        <div *ngIf="false; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="/register">Register</a>
+                </li>
+            </ul>
+        </ng-template>
+
+        <ng-template #elseBlock>
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="/blog/create">Create Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="./">Logout</a>
+                </li>
+            </ul>
+        </ng-template>
     </nav>
 </div>

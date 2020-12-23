@@ -18,7 +18,7 @@
 - markdown syntax for blog content using [ngx-markdown](https://www.npmjs.com/package/ngx-markdown)
 
 ### Installtion
-- install [nodejs](https://nodejs.org/en/) and [angular cli](https://cli.angular.io/)
+- Install [nodejs](https://nodejs.org/en/) and [angular cli](https://cli.angular.io/)
 ```
 git clone https://github.com/Dhiraj-01/Blogging-System.git 
 (or manually download this project)

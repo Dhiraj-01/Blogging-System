@@ -31,7 +31,7 @@ npm install
 ```
 
 ## How to Run ?
-- you can directly double click on [run.bat](https://github.com/Dhiraj-01/Blogging-System/blob/main/run.bat) file.  or follow this stpes.
+- you can directly double click on [run.bat](https://github.com/Dhiraj-01/Blogging-System/blob/main/run.bat) (windows only) file.  or follow this stpes.
 ```
 cd backend
 node index.js

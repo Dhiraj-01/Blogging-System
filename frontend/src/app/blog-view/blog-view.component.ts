@@ -23,6 +23,7 @@ export class BlogViewComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    console.log(this.blog_id);
     this._blogService.getBlogById(this.blog_id).subscribe((data) => {
       this.blog = data;
       if(this.blog) {

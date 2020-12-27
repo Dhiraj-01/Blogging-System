@@ -21,7 +21,8 @@ body, html {
 }
 
 .full {
-  height: 100%;
+  min-height: 91vh;
+  /* height: 100%; */
 }
 
 .bg1 {

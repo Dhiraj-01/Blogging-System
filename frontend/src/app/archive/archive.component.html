@@ -29,59 +29,31 @@
             (keyup)="filter(searchEle.value)">
     </div>
     <div>
-        <ul class="list-group" *ngFor="let b of blogs">
-            <div *ngIf="isEven(); then thenBlock else elseBlock"></div>
-            <ng-template #thenBlock>
-                <li class="list-group-item">
-                    <div>
-                        <div class="row">
-                            <div class="col link author font-italic" routerLink="./" [queryParams]="{user : b.author}" queryParamsHandling="merge">
-                                Author :
-                                <span class="font-weight-bold blue-hover">
-                                    {{b.author}}
-                                </span>
-                            </div>
-                            <div class="col text-right published text-gray font-italic">
-                                Published : {{b.published}}
-                            </div>
+        <ul class="list-group" *ngFor="let b of blogs; let isEven = even">
+            <li class="list-group-item" [ngClass]="isEven ? '' : 'bg-gray'">
+                <div>
+                    <div class="row">
+                        <div class="col link author font-italic" routerLink="./" [queryParams]="{user : b.author}"
+                            queryParamsHandling="merge">
+                            Author :
+                            <span class="font-weight-bold blue-hover">
+                                {{b.author}}
+                            </span>
                         </div>
-                        <div class="pointer mt-1" routerLink="/blog/view/{{b._id}}">
-                            <div class="h4 font3 clr1 blue-hover">
-                                {{b.title}}
-                            </div>
-                            <div class="description">
-                                {{b.description}}
-                            </div>
+                        <div class="col text-right published text-gray font-italic">
+                            Published : {{b.published}}
                         </div>
                     </div>
-                </li>
-            </ng-template>
-            <ng-template #elseBlock>
-                <li class="list-group-item list-group-item-action bg-gray">
-                    <div>
-                        <div class="row">
-                            <div class="link col author font-italic" routerLink="/blog" [queryParams]="{user : b.author}">
-                                Author :
-                                <span class="font-weight-bold blue-hover">
-                                    {{b.author}}
-                                </span>
-                            </div>
-                            <div class="col text-right published text-gray font-italic">
-                                Published : {{b.published}}
-                            </div>
+                    <div class="pointer mt-1" routerLink="/blog/view/{{b._id}}">
+                        <div class="h4 font3 clr1 blue-hover">
+                            {{b.title}}
                         </div>
-                        <div class="pointer mt-1" routerLink="/blog/view/{{b._id}}">
-                            <div class="h4 font3 clr1 blue-hover">
-                                {{b.title}}
-                            </div>
-                            <div class="description">
-                                {{b.description}}
-                            </div>
+                        <div class="description">
+                            {{b.description}}
                         </div>
                     </div>
-                </li>
-            </ng-template>
-            {{increment()}}
+                </div>
+            </li>
         </ul>
     </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="m-4 border rounded">
-    <div class="m-4">
+    <div class="m-4" *ngIf="blog">
         <div>
             <div class="link author font-italic font-weight-bold" routerLink="/blog" [queryParams]="{user : blog.author}">
                 Author : {{blog.author}}

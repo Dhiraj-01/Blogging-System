@@ -1,6 +1,6 @@
 # Blogging-System
  
-- It's a simple and beautiful website dedicated for bloggers.
+- It's a simple and beautiful website dedicated to bloggers.
 - Technology stack : [**MEAN**](https://en.wikipedia.org/wiki/MEAN_(solution_stack))
 - [SRS document for Blogging System](https://github.com/Dhiraj-01/Blogging-System/blob/main/srs-blogging-system.pdf)
 
